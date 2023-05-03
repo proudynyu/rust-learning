@@ -31,24 +31,6 @@ fn return_loop_value() {
     println!("{} and {}", result, counter)
 }
 
-fn fizz_buzz() {
-    let mut n = 1;
-
-    while n < 101 {
-        if n % 15 == 0 {
-            println!("fizzbuzz");
-        } else if n % 3 == 0  {
-            println!("fizz");
-        } else if n % 5 == 0 {
-            println!("buzz");
-        } else {
-            println!("{}", n);
-        }
-
-        n += 1;
-    }
-}
-
 fn fizz_buzz_with_for() {
     for n in 1..=101 {
         if n % 15 == 0 {
@@ -174,8 +156,6 @@ fn main() {
     outer_loop();
 
     return_loop_value();
-
-    fizz_buzz();
 
     fizz_buzz_with_for();
 
