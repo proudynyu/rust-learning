@@ -1,7 +1,9 @@
 use let_else::let_else;
+use while_let::while_let;
 
 pub mod if_let;
 pub mod let_else;
+pub mod while_let;
 
 fn arrays_slices() {
     let array = [1, -2, 6];
@@ -164,4 +166,6 @@ fn main() {
     binding();
 
     let_else();
+
+    while_let();
 }
