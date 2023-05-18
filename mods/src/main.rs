@@ -37,6 +37,30 @@ mod my_mod {
     }
 }
 
+mod new_mod {
+    pub struct OpenBox<T> {
+        pub contents: T,
+    }
+
+    pub struct ClosedBox<T> {
+        contents: T
+    }
+
+    impl <T> ClosedBox<T> {
+        pub fn new(contents: T) -> ClosedBox<T> {
+            ClosedBox {
+                contents,
+            }
+        }
+    }
+}
+
 fn main() {
-    println!("Hello, world!");
+    let open_box = new_mod::OpenBox { contents: "public information" };
+    println!("The open box contains: {}", open_box.contents);
+
+    // let closed_box = new_mod::ClosedBox { contents: "private information" };
+
+    let closed_box = new_mod::ClosedBox::new("private information");
+
 }
