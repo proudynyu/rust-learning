@@ -24,6 +24,8 @@ fn main() {
     let pair = Pair(Box::new(1), Box::new(2));
 
     pair.destroy();
+
+    high_order();
 }
 
 fn is_divisible_by(lhs: u32, rhs: u32) -> bool {
@@ -243,5 +245,28 @@ fn high_order() {
         n % 2 == 1
     }
 
-    println!("Find the sum of all the squared odd numbers under 1000")
+    println!("Find the sum of all the squared odd numbers under 1000");
+
+    let upper = 1000;
+
+    let mut acc = 0;
+
+    for n in 0.. {
+        let n_squared = n * n;
+
+        if n_squared >= upper {
+            break;
+        } else if is_odd(n_squared) {
+            acc += n_squared;
+        }
+    }
+     println!("imperative style: {}", acc);
+
+     let sum_of_squared_odd_numbers: u32 =
+         (0..).map(|n| n * n)
+            .take_while(|&n_squared| n_squared < upper)
+            .filter(|&n_squared| is_odd(n_squared))
+            .sum();
+
+     println!("functional style: {}", sum_of_squared_odd_numbers);
 }
