@@ -1,3 +1,7 @@
+mod split;
+
+use split::split;
+
 mod my_mod {
     fn private_function() {
         print!("called my_mod::private_function()")
@@ -63,4 +67,5 @@ fn main() {
 
     let closed_box = new_mod::ClosedBox::new("private information");
 
+    split();
 }
